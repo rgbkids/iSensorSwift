@@ -3,7 +3,7 @@
 //  iSensorSwift
 //
 //  Created by Kosuke Ogawa on 2016/03/15.
-//  Copyright © 2016年 koogawa. All rights reserved.
+//  Copyright © 2016 koogawa. All rights reserved.
 //
 
 import UIKit
@@ -16,18 +16,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // バッテリー状態を監視できるようにする
         UIDevice.currentDevice().batteryMonitoringEnabled = true
-        
-        // バッテリー残量監視オン
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//            selector:@selector(batteryLevelDidChange:)
-//        name:UIDeviceBatteryLevelDidChangeNotification
-//        object:nil];
-        
+
+        // Init Labels
         self.updateBatteryLevelLabel()
-        
         self.updateBatteryStateLabel()
+        
+        // Observe battery level
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "batteryLevelDidChange",
+            name: UIDeviceBatteryLevelDidChangeNotification,
+            object: nil)
+
+        // Observe battery state
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "batteryStateDidChange",
+            name: UIDeviceBatteryStateDidChangeNotification,
+            object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,56 +41,33 @@ class ViewController: UIViewController {
     }
 
     func updateBatteryLevelLabel() {
-        // バッテリーの残量を取得する
         let batteryLevel = UIDevice.currentDevice().batteryLevel
-    
         self.batteryLevelLabel?.text = "\(batteryLevel)"
     }
 
     func updateBatteryStateLabel() {
         let batteryStateString: String
-        
-//    NSString *batteryStateString;
     
-        // バッテリーの充電状態を取得する
         let status = UIDevice.currentDevice().batteryState
         switch status {
         case .Full:
             batteryStateString = "Full"
         case .Unplugged:
-            batteryStateString = "Full"
+            batteryStateString = "Unplugged"
         case .Charging:
-            batteryStateString = "Full"
+            batteryStateString = "Charging"
         case .Unknown:
-            batteryStateString = "Full"
+            batteryStateString = "Unknown"
         }
         
         self.batteryStateLabel!.text = batteryStateString
     }
     
-    //    switch ([UIDevice currentDevice].batteryState)
-//    {
-//    case UIDeviceBatteryStateFull:
-//    batteryStateString = @"Full";
-//    break;
-//    
-//    case UIDeviceBatteryStateUnplugged:
-//    batteryStateString = @"Unplugged";
-//    break;
-//    
-//    case UIDeviceBatteryStateCharging:
-//    batteryStateString = @"Charging";
-//    break;
-//    
-//    case UIDeviceBatteryStateUnknown:
-//    batteryStateString = @"Unknown";
-//    break;
-//    
-//    default:
-//    break;
-//    }
-//    
-//    self.batteryStateLabel.text = batteryStateString;
+    func batteryLevelDidChange() {
+        self.updateBatteryLevelLabel()
     }
-
-
+    
+    func batteryStateDidChange() {
+        self.updateBatteryStateLabel()
+    }
+}
