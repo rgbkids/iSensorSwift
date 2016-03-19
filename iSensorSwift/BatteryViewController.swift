@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BatteryViewController.swift
 //  iSensorSwift
 //
 //  Created by Kosuke Ogawa on 2016/03/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BatteryViewController: UIViewController {
 
     @IBOutlet weak var batteryLevelLabel: UILabel!    
     @IBOutlet weak var batteryStateLabel: UILabel!
