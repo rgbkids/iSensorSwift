@@ -55,6 +55,8 @@ class BatteryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Internal method
+
     func updateBatteryLevelLabel() {
         let batteryLevel = UIDevice.currentDevice().batteryLevel
         self.batteryLevelLabel?.text = "\(batteryLevel)"
