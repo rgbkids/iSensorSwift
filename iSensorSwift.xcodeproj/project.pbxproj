@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2107BDFB1C9D3B7E005C46EE /* ProximityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107BDFA1C9D3B7E005C46EE /* ProximityViewController.swift */; };
+		21163D5D1C9E1B46005CC2D0 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */; };
 		DC6FCCF91C9813D1004C61E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */; };
 		DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */; };
 		DC6FCCFE1C9813D1004C61E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6FCCFC1C9813D1004C61E0 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		2107BDFA1C9D3B7E005C46EE /* ProximityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityViewController.swift; path = Controller/ProximityViewController.swift; sourceTree = "<group>"; };
+		21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShakeViewController.swift; path = Controller/ShakeViewController.swift; sourceTree = "<group>"; };
 		DC6FCCF51C9813D1004C61E0 /* iSensorSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSensorSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatteryViewController.swift; path = Controller/BatteryViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 			children = (
 				DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */,
 				2107BDFA1C9D3B7E005C46EE /* ProximityViewController.swift */,
+				21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				2107BDFB1C9D3B7E005C46EE /* ProximityViewController.swift in Sources */,
 				DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */,
 				DC6FCCF91C9813D1004C61E0 /* AppDelegate.swift in Sources */,
+				21163D5D1C9E1B46005CC2D0 /* ShakeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
