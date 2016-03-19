@@ -35,6 +35,21 @@ class BatteryViewController: UIViewController {
             object: nil)
     }
 
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        // Finish observation
+        UIDevice.currentDevice().batteryMonitoringEnabled = false
+
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIDeviceBatteryLevelDidChangeNotification,
+            object: nil)
+
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIDeviceBatteryStateDidChangeNotification,
+            object: nil)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
