@@ -3,7 +3,7 @@
 //  iSensorSwift
 //
 //  Created by Kosuke Ogawa on 2016/03/23.
-//  Copyright © 2016年 koogawa. All rights reserved.
+//  Copyright © 2016 koogawa. All rights reserved.
 //
 
 import UIKit
@@ -21,10 +21,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
 
         // Do any additional setup after loading the view.
         locationManager = CLLocationManager()
-        
         locationManager.delegate = self
-        
-        // 位置情報の取得開始
         locationManager.startUpdatingLocation()
     }
 
@@ -32,7 +29,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    // MARK: - CLLocationManager delegate
+
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
         case .NotDetermined:
@@ -45,19 +44,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        
         self.latTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.latitude)
         self.lngTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.longitude)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
