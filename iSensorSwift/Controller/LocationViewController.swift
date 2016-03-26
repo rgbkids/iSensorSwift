@@ -13,16 +13,25 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var latTextField: UITextField!
     @IBOutlet weak var lngTextField: UITextField!
-    
+
     var locationManager: CLLocationManager!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        }
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.stopUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +51,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             break
         }
     }
-    
+
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         self.latTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.latitude)
         self.lngTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.longitude)
