@@ -117,6 +117,26 @@
                                             <segue destination="8MD-6s-CCk" kind="show" id="Z8P-uR-cxt"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="s3J-Mz-e2S" style="IBUITableViewCellStyleDefault" id="h8T-cf-YsC">
+                                        <rect key="frame" x="0.0" y="284" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h8T-cf-YsC" id="vpc-r7-3cb">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Altitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s3J-Mz-e2S" userLabel="Altitude">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="I53-Qe-jtx" kind="show" id="Bbr-m5-dgi"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -130,6 +150,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIa-NT-5wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="443" y="-273"/>
+        </scene>
+        <!--Altitude View Controller-->
+        <scene sceneID="jO4-nX-y6k">
+            <objects>
+                <viewController id="I53-Qe-jtx" customClass="AltitudeViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VEo-47-zld"/>
+                        <viewControllerLayoutGuide type="bottom" id="bSR-gf-B71"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1So-14-exK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQb-kk-Pdw">
+                                <rect key="frame" x="252" y="153" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0VD-tS-cG3"/>
+                                    <constraint firstAttribute="width" constant="97" id="lGz-PF-hQA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-7d-uTT">
+                                <rect key="frame" x="270" y="124" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XQb-kk-Pdw" firstAttribute="centerX" secondItem="1So-14-exK" secondAttribute="centerX" id="KOR-yV-mCN"/>
+                            <constraint firstItem="1eT-7d-uTT" firstAttribute="centerX" secondItem="1So-14-exK" secondAttribute="centerX" id="m0a-mn-VqW"/>
+                            <constraint firstItem="1eT-7d-uTT" firstAttribute="top" secondItem="VEo-47-zld" secondAttribute="bottom" constant="60" id="o3i-tr-jCs"/>
+                            <constraint firstItem="XQb-kk-Pdw" firstAttribute="top" secondItem="1eT-7d-uTT" secondAttribute="bottom" constant="8" id="u9z-GE-vms"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="XQb-kk-Pdw" id="pgI-B6-5ft"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n8N-vS-hQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2072" y="-981"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Atp-zV-lfq">
@@ -258,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Olf-0H-fjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="392" y="807"/>
+            <point key="canvasLocation" x="2072" y="-1697"/>
         </scene>
         <!--Proximity-->
         <scene sceneID="GY8-om-801">
