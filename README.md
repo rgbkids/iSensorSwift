@@ -7,3 +7,4 @@ Sense a lot of things. (Swift ver)
 3. Shake Gesture
 4. Screen Brightness
 5. Location
+6. Altitude
