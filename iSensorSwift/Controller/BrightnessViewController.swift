@@ -11,9 +11,14 @@ import UIKit
 class BrightnessViewController: UIViewController {
 
     @IBOutlet weak var brightnessLabel: UILabel!
+    @IBOutlet weak var brightStepper: UIStepper!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Setup UIStepper
+        let screen = UIScreen.mainScreen()
+        self.brightStepper.value = Double(screen.brightness)
 
         self.updateBrightnessLabel()
 
@@ -53,19 +58,8 @@ class BrightnessViewController: UIViewController {
 
     // MARK: - Action methods
 
-    @IBAction func downButtonDidTap(sender: AnyObject) {
-        var brightness = UIScreen.mainScreen().brightness
-        brightness -= 0.1
-        if brightness < 0.0 { brightness = 0.0 }
-        UIScreen.mainScreen().brightness = brightness
-        self.updateBrightnessLabel()
-    }
-
-    @IBAction func upButtonDidTap(sender: AnyObject) {
-        var brightness = UIScreen.mainScreen().brightness
-        brightness += 0.1
-        if brightness > 1.0 { brightness = 1.0 }
-        UIScreen.mainScreen().brightness = brightness
+    @IBAction func stepperDidTap(stepper: UIStepper) {
+        UIScreen.mainScreen().brightness = CGFloat(stepper.value)
         self.updateBrightnessLabel()
     }
 }

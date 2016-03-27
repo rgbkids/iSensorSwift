@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LIL-Z5-aWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LIL-Z5-aWf">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -176,37 +176,23 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Y8L-Ob-SIk">
-                                <rect key="frame" x="258" y="225" width="84" height="48"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b55-TL-I7E">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="48"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="-"/>
-                                        <connections>
-                                            <action selector="downButtonDidTap:" destination="Xc5-P0-LdR" eventType="touchUpInside" id="PlU-j4-GWt"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7u-Xl-XuB">
-                                        <rect key="frame" x="54" y="0.0" width="30" height="48"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="+"/>
-                                        <connections>
-                                            <action selector="upButtonDidTap:" destination="Xc5-P0-LdR" eventType="touchUpInside" id="7kX-Hh-JUa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-Mf-Q5y">
+                                <rect key="frame" x="253" y="222" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperDidTap:" destination="Xc5-P0-LdR" eventType="valueChanged" id="DJm-eW-fYh"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="One-e8-QiL" firstAttribute="centerX" secondItem="8ck-E1-dk3" secondAttribute="centerX" id="2I5-r4-YDJ"/>
-                            <constraint firstItem="Y8L-Ob-SIk" firstAttribute="top" secondItem="One-e8-QiL" secondAttribute="bottom" constant="40" id="93U-n8-ExY"/>
+                            <constraint firstItem="8uJ-Mf-Q5y" firstAttribute="top" secondItem="One-e8-QiL" secondAttribute="bottom" constant="37" id="6oP-8h-I7f"/>
+                            <constraint firstItem="8uJ-Mf-Q5y" firstAttribute="centerX" secondItem="8ck-E1-dk3" secondAttribute="centerX" id="Oml-wh-y2Q"/>
                             <constraint firstItem="One-e8-QiL" firstAttribute="top" secondItem="msI-5Q-cvg" secondAttribute="bottom" constant="100" id="juE-NB-Lsl"/>
-                            <constraint firstItem="Y8L-Ob-SIk" firstAttribute="centerX" secondItem="8ck-E1-dk3" secondAttribute="centerX" id="mpU-ur-PqI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="brightStepper" destination="8uJ-Mf-Q5y" id="Nan-i4-SNy"/>
                         <outlet property="brightnessLabel" destination="8By-WM-69o" id="41b-n8-Oo6"/>
                     </connections>
                 </viewController>
