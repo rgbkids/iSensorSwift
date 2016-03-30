@@ -24,15 +24,15 @@ class BatteryViewController: UIViewController {
         
         // Observe battery level
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "batteryLevelDidChange",
-            name: UIDeviceBatteryLevelDidChangeNotification,
-            object: nil)
+                                                         selector: #selector(BatteryViewController.batteryLevelDidChange),
+                                                         name: UIDeviceBatteryLevelDidChangeNotification,
+                                                         object: nil)
 
         // Observe battery state
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "batteryStateDidChange",
-            name: UIDeviceBatteryStateDidChangeNotification,
-            object: nil)
+                                                         selector: #selector(BatteryViewController.batteryStateDidChange),
+                                                         name: UIDeviceBatteryStateDidChangeNotification,
+                                                         object: nil)
     }
 
     override func viewDidDisappear(animated: Bool) {
