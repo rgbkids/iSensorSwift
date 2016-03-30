@@ -24,7 +24,7 @@ class BrightnessViewController: UIViewController {
 
         // Observe screen brightness
         NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: "screenBrightnessDidChange:",
+                                                         selector: #selector(screenBrightnessDidChange(_:)),
                                                          name: UIScreenBrightnessDidChangeNotification,
                                                          object: nil)
     }

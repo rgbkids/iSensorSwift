@@ -18,9 +18,9 @@ class ProximityViewController: UIViewController {
 
         // Observe proximity state
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "proximitySensorStateDidChange",
-            name: UIDeviceProximityStateDidChangeNotification,
-            object: nil)
+                                                         selector: #selector(proximitySensorStateDidChange),
+                                                         name: UIDeviceProximityStateDidChangeNotification,
+                                                         object: nil)
     }
 
     override func viewDidDisappear(animated: Bool) {
