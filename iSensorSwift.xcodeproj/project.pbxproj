@@ -16,6 +16,7 @@
 		DC6FCCFE1C9813D1004C61E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6FCCFC1C9813D1004C61E0 /* Main.storyboard */; };
 		DC6FCD001C9813D1004C61E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6FCCFF1C9813D1004C61E0 /* Assets.xcassets */; };
 		DC6FCD031C9813D1004C61E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6FCD011C9813D1004C61E0 /* LaunchScreen.storyboard */; };
+		DCB0BAF81CABE5B00047EC32 /* HeadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB0BAF71CABE5B00047EC32 /* HeadingViewController.swift */; };
 		DCD4ADDD1CA2A42A00B4CAF8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4ADDC1CA2A42A00B4CAF8 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		DC6FCCFF1C9813D1004C61E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC6FCD021C9813D1004C61E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC6FCD041C9813D1004C61E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCB0BAF71CABE5B00047EC32 /* HeadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeadingViewController.swift; path = Controller/HeadingViewController.swift; sourceTree = "<group>"; };
 		DCD4ADDC1CA2A42A00B4CAF8 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = Controller/LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 				21B2CE861CA7631000B59593 /* AltitudeViewController.swift */,
 				DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */,
 				21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */,
+				DCB0BAF71CABE5B00047EC32 /* HeadingViewController.swift */,
 				DCD4ADDC1CA2A42A00B4CAF8 /* LocationViewController.swift */,
 				2107BDFA1C9D3B7E005C46EE /* ProximityViewController.swift */,
 				21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */,
@@ -163,6 +166,7 @@
 				DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */,
 				DC6FCCF91C9813D1004C61E0 /* AppDelegate.swift in Sources */,
 				DCD4ADDD1CA2A42A00B4CAF8 /* LocationViewController.swift in Sources */,
+				DCB0BAF81CABE5B00047EC32 /* HeadingViewController.swift in Sources */,
 				21163D5D1C9E1B46005CC2D0 /* ShakeViewController.swift in Sources */,
 				21163D7D1C9F8C98005CC2D0 /* BrightnessViewController.swift in Sources */,
 			);
