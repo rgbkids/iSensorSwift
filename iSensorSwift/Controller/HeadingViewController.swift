@@ -21,11 +21,12 @@ class HeadingViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
             locationManager.delegate = self
-            //
+            
+            // Specifies the minimum amount of change in degrees needed for a heading service update (default: 1 degree)
             locationManager.headingFilter = kCLHeadingFilterNone
             
-            // デバイスの度の向きを北とするか（デフォルトは画面上部）
-            locationManager.headingOrientation = .Portrait //CLDeviceOrientationPortrait;
+            // Specifies a physical device orientation from which heading calculation should be referenced
+            locationManager.headingOrientation = .Portrait
 
             locationManager.startUpdatingHeading()
         }
@@ -35,7 +36,7 @@ class HeadingViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidDisappear(animated)
         
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.stopUpdatingLocation()
+            locationManager.stopUpdatingHeading()
         }
     }
     
