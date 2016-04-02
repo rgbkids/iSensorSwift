@@ -8,3 +8,4 @@ Sense a lot of things. (Swift ver)
 4. Screen Brightness
 5. Location
 6. Altitude
+7. Heading
