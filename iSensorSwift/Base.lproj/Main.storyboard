@@ -191,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="443" y="-273"/>
         </scene>
-        <!--Heading View Controller-->
+        <!--Heading-->
         <scene sceneID="PvO-BH-2Tr">
             <objects>
-                <viewController id="7kM-ee-IcJ" customClass="HeadingViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Heading" id="7kM-ee-IcJ" customClass="HeadingViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PgK-aW-QJ5"/>
                         <viewControllerLayoutGuide type="bottom" id="xXC-q3-zzj"/>
@@ -294,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="2072" y="837"/>
         </scene>
-        <!--Altitude View Controller-->
+        <!--Altitude-->
         <scene sceneID="jO4-nX-y6k">
             <objects>
-                <viewController id="I53-Qe-jtx" customClass="AltitudeViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Altitude" id="I53-Qe-jtx" customClass="AltitudeViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VEo-47-zld"/>
                         <viewControllerLayoutGuide type="bottom" id="bSR-gf-B71"/>
@@ -407,10 +407,10 @@
             </objects>
             <point key="canvasLocation" x="1263" y="-1372"/>
         </scene>
-        <!--Location View Controller-->
+        <!--Location-->
         <scene sceneID="cAJ-77-KKe">
             <objects>
-                <viewController id="8MD-6s-CCk" customClass="LocationViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Location" id="8MD-6s-CCk" customClass="LocationViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4e3-xz-KEq"/>
                         <viewControllerLayoutGuide type="bottom" id="A1L-zp-XKz"/>
