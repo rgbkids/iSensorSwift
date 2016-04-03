@@ -1,8 +1,8 @@
 //
-//  LocationViewController.swift
+//  SpeedViewController.swift
 //  iSensorSwift
 //
-//  Created by Kosuke Ogawa on 2016/03/23.
+//  Created by Kosuke Ogawa on 2016/04/03.
 //  Copyright © 2016 koogawa. All rights reserved.
 //
 
@@ -53,7 +53,7 @@ class SpeedViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        self.mpsTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.latitude)
-        self.kphTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.longitude)
+        self.mpsTextField.text = "".stringByAppendingFormat("%.2f", newLocation.speed)
+        self.kphTextField.text = "".stringByAppendingFormat("%.2f", newLocation.speed * 3.6)
     }
 }
