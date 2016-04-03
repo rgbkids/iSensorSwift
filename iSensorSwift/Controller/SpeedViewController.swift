@@ -1,35 +1,59 @@
 //
-//  SpeedViewController.swift
+//  LocationViewController.swift
 //  iSensorSwift
 //
-//  Created by koogawa on 2016/04/03.
+//  Created by Kosuke Ogawa on 2016/03/23.
 //  Copyright © 2016 koogawa. All rights reserved.
 //
 
 import UIKit
+import CoreLocation
 
-class SpeedViewController: UIViewController {
+class SpeedViewController: UIViewController, CLLocationManagerDelegate {
+
+    @IBOutlet weak var mpsTextField: UITextField!
+    @IBOutlet weak var kphTextField: UITextField!
+
+    var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        }
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.stopUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+    // MARK: - CLLocationManager delegate
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        switch status {
+        case .NotDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .Restricted, .Denied:
+            break
+        case .Authorized, .AuthorizedWhenInUse:
+            break
+        }
     }
-    */
 
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        self.mpsTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.latitude)
+        self.kphTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.longitude)
+    }
 }
