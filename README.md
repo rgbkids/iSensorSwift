@@ -2,6 +2,8 @@
 
 Sense a lot of things. (Swift ver)
 
+![](https://raw.githubusercontent.com/koogawa/iSensorSwift/master/iSensorSwift/Assets.xcassets/AppIcon.appiconset/icon%403x.png)
+
 1. Battery
 2. Proximity Monitoring
 3. Shake Gesture
