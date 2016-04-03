@@ -11,3 +11,4 @@ Sense a lot of things. (Swift ver)
 5. Location
 6. Altitude
 7. Heading
+8. Speed
