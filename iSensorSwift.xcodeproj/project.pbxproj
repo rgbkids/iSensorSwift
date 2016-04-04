@@ -85,10 +85,10 @@
 			children = (
 				2107BDF91C9D3B3D005C46EE /* Controller */,
 				DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */,
-				DC6FCCFC1C9813D1004C61E0 /* Main.storyboard */,
 				DC6FCCFF1C9813D1004C61E0 /* Assets.xcassets */,
-				DC6FCD011C9813D1004C61E0 /* LaunchScreen.storyboard */,
 				DC6FCD041C9813D1004C61E0 /* Info.plist */,
+				DC6FCD011C9813D1004C61E0 /* LaunchScreen.storyboard */,
+				DC6FCCFC1C9813D1004C61E0 /* Main.storyboard */,
 			);
 			path = iSensorSwift;
 			sourceTree = "<group>";
