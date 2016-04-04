@@ -11,6 +11,7 @@
 		21163D5D1C9E1B46005CC2D0 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */; };
 		21163D7D1C9F8C98005CC2D0 /* BrightnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */; };
 		21A2CBA61CB0B5BB0010A7F2 /* SpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2CBA51CB0B5BB0010A7F2 /* SpeedViewController.swift */; };
+		21A2CBA81CB29C610010A7F2 /* AccelerometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */; };
 		21B2CE871CA7631000B59593 /* AltitudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B2CE861CA7631000B59593 /* AltitudeViewController.swift */; };
 		DC6FCCF91C9813D1004C61E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */; };
 		DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */; };
@@ -26,6 +27,7 @@
 		21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShakeViewController.swift; path = Controller/ShakeViewController.swift; sourceTree = "<group>"; };
 		21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrightnessViewController.swift; path = Controller/BrightnessViewController.swift; sourceTree = "<group>"; };
 		21A2CBA51CB0B5BB0010A7F2 /* SpeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeedViewController.swift; path = Controller/SpeedViewController.swift; sourceTree = "<group>"; };
+		21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccelerometerViewController.swift; path = Controller/AccelerometerViewController.swift; sourceTree = "<group>"; };
 		21B2CE861CA7631000B59593 /* AltitudeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AltitudeViewController.swift; path = Controller/AltitudeViewController.swift; sourceTree = "<group>"; };
 		DC6FCCF51C9813D1004C61E0 /* iSensorSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSensorSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		2107BDF91C9D3B3D005C46EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */,
 				21B2CE861CA7631000B59593 /* AltitudeViewController.swift */,
 				DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */,
 				21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */,
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A2CBA81CB29C610010A7F2 /* AccelerometerViewController.swift in Sources */,
 				2107BDFB1C9D3B7E005C46EE /* ProximityViewController.swift in Sources */,
 				21B2CE871CA7631000B59593 /* AltitudeViewController.swift in Sources */,
 				DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */,
