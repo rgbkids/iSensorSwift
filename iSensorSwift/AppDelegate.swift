@@ -3,7 +3,7 @@
 //  iSensorSwift
 //
 //  Created by Kosuke Ogawa on 2016/03/15.
-//  Copyright © 2016年 koogawa. All rights reserved.
+//  Copyright © 2016 koogawa. All rights reserved.
 //
 
 import UIKit
