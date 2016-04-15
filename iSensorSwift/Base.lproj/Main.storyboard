@@ -785,10 +785,10 @@
             </objects>
             <point key="canvasLocation" x="1263" y="103"/>
         </scene>
-        <!--View Controller-->
+        <!--Audio View Controller-->
         <scene sceneID="HhR-V6-Klv">
             <objects>
-                <viewController id="uoe-26-70a" sceneMemberID="viewController">
+                <viewController id="uoe-26-70a" customClass="AudioViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dNE-4v-sbG"/>
                         <viewControllerLayoutGuide type="bottom" id="kcD-dR-Fha"/>

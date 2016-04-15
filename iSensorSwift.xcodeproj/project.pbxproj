@@ -14,6 +14,7 @@
 		21A2CBA61CB0B5BB0010A7F2 /* SpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2CBA51CB0B5BB0010A7F2 /* SpeedViewController.swift */; };
 		21A2CBA81CB29C610010A7F2 /* AccelerometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */; };
 		21B2CE871CA7631000B59593 /* AltitudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B2CE861CA7631000B59593 /* AltitudeViewController.swift */; };
+		21DC6CEE1CC12FE1007FB913 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC6CED1CC12FE1007FB913 /* AudioViewController.swift */; };
 		DC6FCCF91C9813D1004C61E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */; };
 		DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */; };
 		DC6FCCFE1C9813D1004C61E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6FCCFC1C9813D1004C61E0 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		21A2CBA51CB0B5BB0010A7F2 /* SpeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeedViewController.swift; path = Controller/SpeedViewController.swift; sourceTree = "<group>"; };
 		21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccelerometerViewController.swift; path = Controller/AccelerometerViewController.swift; sourceTree = "<group>"; };
 		21B2CE861CA7631000B59593 /* AltitudeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AltitudeViewController.swift; path = Controller/AltitudeViewController.swift; sourceTree = "<group>"; };
+		21DC6CED1CC12FE1007FB913 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioViewController.swift; path = Controller/AudioViewController.swift; sourceTree = "<group>"; };
 		DC6FCCF51C9813D1004C61E0 /* iSensorSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSensorSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatteryViewController.swift; path = Controller/BatteryViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */,
 				21B2CE861CA7631000B59593 /* AltitudeViewController.swift */,
+				21DC6CED1CC12FE1007FB913 /* AudioViewController.swift */,
 				DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */,
 				21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */,
 				DCB0BAF71CABE5B00047EC32 /* HeadingViewController.swift */,
@@ -175,6 +178,7 @@
 				21B2CE871CA7631000B59593 /* AltitudeViewController.swift in Sources */,
 				DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */,
 				DC6FCCF91C9813D1004C61E0 /* AppDelegate.swift in Sources */,
+				21DC6CEE1CC12FE1007FB913 /* AudioViewController.swift in Sources */,
 				DCD4ADDD1CA2A42A00B4CAF8 /* LocationViewController.swift in Sources */,
 				213454D31CB9E63F00E64863 /* MotionActivityViewController.swift in Sources */,
 				DCB0BAF81CABE5B00047EC32 /* HeadingViewController.swift in Sources */,
