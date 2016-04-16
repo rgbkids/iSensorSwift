@@ -10,6 +10,16 @@ import UIKit
 
 class MotionActivityViewController: UIViewController {
 
+    @IBOutlet weak var stepLabel: UILabel!
+
+    @IBOutlet weak var stationaryLabel: UILabel!
+    @IBOutlet weak var walkingLabel: UILabel!
+    @IBOutlet weak var runningLabel: UILabel!
+    @IBOutlet weak var automotiveLabel: UILabel!
+    @IBOutlet weak var unknowLabel: UILabel!
+
+    @IBOutlet weak var confidenceLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
