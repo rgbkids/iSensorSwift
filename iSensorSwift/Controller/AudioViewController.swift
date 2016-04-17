@@ -22,6 +22,11 @@ private func AudioQueueInputCallback(
 
 class AudioViewController: UIViewController {
 
+    @IBOutlet weak var loudLabel: UILabel!
+    
+    @IBOutlet weak var peakTextField: UITextField!
+    @IBOutlet weak var averageTextField: UITextField!
+
     var queue: AudioQueueRef!
     var timer: NSTimer!
 
@@ -105,12 +110,11 @@ class AudioViewController: UIViewController {
             &levelMeter,
             &propertySize)
 
-        print(levelMeter.mPeakPower)
-        print(levelMeter.mAveragePower)
-//        self.peakTextField.text = [NSString stringWithFormat:@"%.2f", levelMeter.mPeakPower];
-//        self.averageTextField.text = [NSString stringWithFormat:@"%.2f", levelMeter.mAveragePower];
+        // Show the audio channel's peak and average RMS power.
+        self.peakTextField.text = "".stringByAppendingFormat("%.2f", levelMeter.mPeakPower)
+        self.averageTextField.text = "".stringByAppendingFormat("%.2f", levelMeter.mAveragePower)
 
         // Show "LOUD!!" if mPeakPower is larger than -1.0
-//        self.loudLabel.hidden = (levelMeter.mPeakPower >= -1.0f) ? NO : YES;
+        self.loudLabel.hidden = (levelMeter.mPeakPower >= -1.0) ? false : true
     }
 }
