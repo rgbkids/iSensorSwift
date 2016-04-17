@@ -24,11 +24,11 @@ class AccelerometerViewController: UIViewController {
             manager.accelerometerUpdateInterval = 1 / 10; // 10Hz
 
             let accelerometerHandler:CMAccelerometerHandler = {
-                (data: CMAccelerometerData?, error: NSError?) -> Void in
+                [weak self] (data: CMAccelerometerData?, error: NSError?) -> Void in
 
-                self.xLabel.text = "".stringByAppendingFormat("x %.4f", data!.acceleration.x)
-                self.yLabel.text = "".stringByAppendingFormat("y %.4f", data!.acceleration.y)
-                self.zLabel.text = "".stringByAppendingFormat("z %.4f", data!.acceleration.z)
+                self?.xLabel.text = "".stringByAppendingFormat("x %.4f", data!.acceleration.x)
+                self?.yLabel.text = "".stringByAppendingFormat("y %.4f", data!.acceleration.y)
+                self?.zLabel.text = "".stringByAppendingFormat("z %.4f", data!.acceleration.z)
 
                 print("x: \(data!.acceleration.x) y: \(data!.acceleration.y) z: \(data!.acceleration.z)")
             }
