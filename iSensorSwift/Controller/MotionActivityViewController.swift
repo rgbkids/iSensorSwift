@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class MotionActivityViewController: UIViewController {
 
@@ -20,10 +21,21 @@ class MotionActivityViewController: UIViewController {
 
     @IBOutlet weak var confidenceLabel: UILabel!
 
+    let stepCounter = CMStepCounter()
+    let pedometer = CMPedometer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.stepCounter.startStepCountingUpdatesToQueue(NSOperationQueue.mainQueue(), updateOn: 1, withHandler: { numberOfSteps, timestamp, error in
+            if error == nil {
+//                self.stepLabel.text = "Steps: \(numberOfSteps)"
+            } else {
+                print("Step Counter error: \(error)")
+            }
+        })
+        self.startStepCounting()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,5 +53,28 @@ class MotionActivityViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func startStepCounting() {
+        // CMPedometerが利用できるか確認
+        if CMPedometer.isStepCountingAvailable() {
+            // 計測開始
+            self.pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
+                [unowned self] data, error in
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("update")
+                    if error != nil {
+                        // エラー
+//                        self.label.text = "エラー : \(error)"
+                        print("エラー : \(error)")
+                    } else {
+                        let lengthFormatter = NSLengthFormatter()
+                        // 歩数
+                        let steps = data?.numberOfSteps
+                        // 結果をラベルに出力
+                        self.stepLabel.text = "Steps: \(data?.numberOfSteps)"
+                    }
+                })
+                })
+        }
+    }
 }
