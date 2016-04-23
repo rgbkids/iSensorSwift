@@ -14,3 +14,5 @@ Sense a lot of things. (Swift ver)
 8. Speed
 9. Audio
 10. Accelerometer
+11. Motion Activity
+
