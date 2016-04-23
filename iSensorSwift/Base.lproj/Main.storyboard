@@ -527,10 +527,10 @@
             </objects>
             <point key="canvasLocation" x="2072" y="-1372"/>
         </scene>
-        <!--Accelerometer View Controller-->
+        <!--Accelerometer-->
         <scene sceneID="K2b-ZG-CJC">
             <objects>
-                <viewController id="bCB-o2-9Q8" customClass="AccelerometerViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Accelerometer" id="bCB-o2-9Q8" customClass="AccelerometerViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5RN-DS-1XP"/>
                         <viewControllerLayoutGuide type="bottom" id="NAl-xR-eSt"/>
@@ -578,10 +578,10 @@
             </objects>
             <point key="canvasLocation" x="2867" y="-1372"/>
         </scene>
-        <!--Motion Activity View Controller-->
+        <!--Motion Activity-->
         <scene sceneID="XHh-LO-Oid">
             <objects>
-                <viewController id="h8y-rs-Yre" customClass="MotionActivityViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Motion Activity" id="h8y-rs-Yre" customClass="MotionActivityViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R7d-yw-Nsx"/>
                         <viewControllerLayoutGuide type="bottom" id="J2c-pl-jeA"/>
@@ -819,10 +819,10 @@
             </objects>
             <point key="canvasLocation" x="1263" y="103"/>
         </scene>
-        <!--Audio View Controller-->
+        <!--Audio-->
         <scene sceneID="HhR-V6-Klv">
             <objects>
-                <viewController id="uoe-26-70a" customClass="AudioViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Audio" id="uoe-26-70a" customClass="AudioViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dNE-4v-sbG"/>
                         <viewControllerLayoutGuide type="bottom" id="kcD-dR-Fha"/>
@@ -847,7 +847,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mPeakPower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nY-tz-IeJ">
                                         <rect key="frame" x="23" y="26" width="130" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cxY-po-geb">
@@ -863,7 +863,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mAveragePower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyy-Nt-gAe">
                                         <rect key="frame" x="23" y="70" width="130" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
