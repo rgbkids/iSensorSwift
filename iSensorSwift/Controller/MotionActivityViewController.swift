@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class MotionActivityViewController: UIViewController {
 
@@ -20,10 +21,21 @@ class MotionActivityViewController: UIViewController {
 
     @IBOutlet weak var confidenceLabel: UILabel!
 
+    let pedometer = CMPedometer()
+    let activityManager = CMMotionActivityManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.startStepCounting()
+        self.startUpdatingActivity()
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        self.pedometer.stopPedometerUpdates()
+        self.activityManager.stopActivityUpdates()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,15 +43,36 @@ class MotionActivityViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Internal methods
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func startStepCounting() {
+        if CMPedometer.isStepCountingAvailable() {
+            self.pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
+                [weak self] (data: CMPedometerData?, error: NSError?) -> Void in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if data != nil && error == nil {
+                        self?.stepLabel.text = "step: \(data!.numberOfSteps)"
+                    }
+                })
+            })
+        }
     }
-    */
 
+    func startUpdatingActivity() {
+        if CMMotionActivityManager.isActivityAvailable() {
+            self.activityManager.startActivityUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: {
+                [weak self] (data: CMMotionActivity?) -> Void in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let data = data {
+                    self?.stationaryLabel.text = "stationary: \(data.stationary)"
+                    self?.walkingLabel.text = "walking: \(data.walking)"
+                    self?.runningLabel.text = "running: \(data.running)"
+                    self?.automotiveLabel.text = "automotive: \(data.automotive)"
+                    self?.unknowLabel.text = "unknown: \(data.unknown)"
+                    self?.confidenceLabel.text = "confidence(0-2): \(data.confidence.rawValue)"
+                    }
+                })
+            })
+        }
+    }
 }
