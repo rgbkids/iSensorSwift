@@ -10,6 +10,7 @@
 		2107BDFB1C9D3B7E005C46EE /* ProximityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107BDFA1C9D3B7E005C46EE /* ProximityViewController.swift */; };
 		21163D5D1C9E1B46005CC2D0 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */; };
 		21163D7D1C9F8C98005CC2D0 /* BrightnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */; };
+		212CD7601CCB6EA00040624B /* FaceDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212CD75F1CCB6EA00040624B /* FaceDetectionViewController.swift */; };
 		213454D31CB9E63F00E64863 /* MotionActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213454D21CB9E63F00E64863 /* MotionActivityViewController.swift */; };
 		21A2CBA61CB0B5BB0010A7F2 /* SpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2CBA51CB0B5BB0010A7F2 /* SpeedViewController.swift */; };
 		21A2CBA81CB29C610010A7F2 /* AccelerometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */; };
@@ -28,6 +29,7 @@
 		2107BDFA1C9D3B7E005C46EE /* ProximityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityViewController.swift; path = Controller/ProximityViewController.swift; sourceTree = "<group>"; };
 		21163D5C1C9E1B46005CC2D0 /* ShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShakeViewController.swift; path = Controller/ShakeViewController.swift; sourceTree = "<group>"; };
 		21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrightnessViewController.swift; path = Controller/BrightnessViewController.swift; sourceTree = "<group>"; };
+		212CD75F1CCB6EA00040624B /* FaceDetectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaceDetectionViewController.swift; path = Controller/FaceDetectionViewController.swift; sourceTree = "<group>"; };
 		213454D21CB9E63F00E64863 /* MotionActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionActivityViewController.swift; path = Controller/MotionActivityViewController.swift; sourceTree = "<group>"; };
 		21A2CBA51CB0B5BB0010A7F2 /* SpeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeedViewController.swift; path = Controller/SpeedViewController.swift; sourceTree = "<group>"; };
 		21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccelerometerViewController.swift; path = Controller/AccelerometerViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				21DC6CED1CC12FE1007FB913 /* AudioViewController.swift */,
 				DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */,
 				21163D7C1C9F8C98005CC2D0 /* BrightnessViewController.swift */,
+				212CD75F1CCB6EA00040624B /* FaceDetectionViewController.swift */,
 				DCB0BAF71CABE5B00047EC32 /* HeadingViewController.swift */,
 				DCD4ADDC1CA2A42A00B4CAF8 /* LocationViewController.swift */,
 				213454D21CB9E63F00E64863 /* MotionActivityViewController.swift */,
@@ -183,6 +186,7 @@
 				213454D31CB9E63F00E64863 /* MotionActivityViewController.swift in Sources */,
 				DCB0BAF81CABE5B00047EC32 /* HeadingViewController.swift in Sources */,
 				21A2CBA61CB0B5BB0010A7F2 /* SpeedViewController.swift in Sources */,
+				212CD7601CCB6EA00040624B /* FaceDetectionViewController.swift in Sources */,
 				21163D5D1C9E1B46005CC2D0 /* ShakeViewController.swift in Sources */,
 				21163D7D1C9F8C98005CC2D0 /* BrightnessViewController.swift in Sources */,
 			);
