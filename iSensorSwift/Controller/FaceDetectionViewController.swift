@@ -8,9 +8,10 @@
 
 import UIKit
 
-class FaceDetectionViewController: UIViewController {
+class FaceDetectionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var detectButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,30 @@ class FaceDetectionViewController: UIViewController {
     // MARK: - Internal methods
 
     @IBAction func didTapSelectButton(sender: AnyObject) {
-        print(1)
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePickerController.delegate = self
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+        }
     }
 
     @IBAction func didTapDetectTap(sender: AnyObject) {
         print(2)
+    }
+
+    // MARK: - UIImagePickerControllerDelegate
+
+    func imagePickerController(imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imageView.contentMode = .ScaleAspectFit
+            self.imageView.image = pickedImage
+        }
+        self.detectButton.enabled = true;
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
 }
