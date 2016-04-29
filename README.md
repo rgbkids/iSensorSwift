@@ -15,4 +15,4 @@ Sense a lot of things. (Swift ver)
 9. Audio
 10. Accelerometer
 11. Motion Activity
-
+12. Face Detection
