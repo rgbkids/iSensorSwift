@@ -237,6 +237,26 @@
                                             <segue destination="h8y-rs-Yre" kind="show" id="aC8-k3-S3b"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Zel-rN-aQW" style="IBUITableViewCellStyleDefault" id="RAu-Sf-o15">
+                                        <rect key="frame" x="0.0" y="548" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RAu-Sf-o15" id="v2Y-u9-BrX">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Face Detection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zel-rN-aQW">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="A6x-gf-7MF" kind="show" id="rdy-Gi-SA0"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -527,10 +547,10 @@
             </objects>
             <point key="canvasLocation" x="2072" y="-1372"/>
         </scene>
-        <!--Accelerometer View Controller-->
+        <!--Accelerometer-->
         <scene sceneID="K2b-ZG-CJC">
             <objects>
-                <viewController id="bCB-o2-9Q8" customClass="AccelerometerViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Accelerometer" id="bCB-o2-9Q8" customClass="AccelerometerViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5RN-DS-1XP"/>
                         <viewControllerLayoutGuide type="bottom" id="NAl-xR-eSt"/>
@@ -578,10 +598,10 @@
             </objects>
             <point key="canvasLocation" x="2867" y="-1372"/>
         </scene>
-        <!--Motion Activity View Controller-->
+        <!--Motion Activity-->
         <scene sceneID="XHh-LO-Oid">
             <objects>
-                <viewController id="h8y-rs-Yre" customClass="MotionActivityViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Motion Activity" id="h8y-rs-Yre" customClass="MotionActivityViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R7d-yw-Nsx"/>
                         <viewControllerLayoutGuide type="bottom" id="J2c-pl-jeA"/>
@@ -673,6 +693,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIf-N9-oTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2867" y="-633"/>
+        </scene>
+        <!--Face Detection-->
+        <scene sceneID="1b7-FE-MLM">
+            <objects>
+                <viewController title="Face Detection" id="A6x-gf-7MF" customClass="FaceDetectionViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rOl-TU-AXQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Slh-vA-SZr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NKR-lZ-Snu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aP-x1-odj">
+                                <rect key="frame" x="160" y="100" width="280" height="210"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="5rK-I2-ynx"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2y-pD-b3p">
+                                <rect key="frame" x="250" y="318" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7xv-1I-X87"/>
+                                </constraints>
+                                <state key="normal" title="Select photo"/>
+                                <connections>
+                                    <action selector="didTapSelectButton:" destination="A6x-gf-7MF" eventType="touchUpInside" id="lfV-jY-JRB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9W-2n-GYB">
+                                <rect key="frame" x="250" y="356" width="100" height="30"/>
+                                <state key="normal" title="Detect"/>
+                                <connections>
+                                    <action selector="didTapDetectTap:" destination="A6x-gf-7MF" eventType="touchUpInside" id="Z8U-MO-tcd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Slh-vA-SZr" firstAttribute="top" secondItem="d9W-2n-GYB" secondAttribute="bottom" constant="214" id="00I-wI-Ou3"/>
+                            <constraint firstItem="i2y-pD-b3p" firstAttribute="top" secondItem="7aP-x1-odj" secondAttribute="bottom" constant="8" symbolic="YES" id="1N7-6F-JpM"/>
+                            <constraint firstItem="7aP-x1-odj" firstAttribute="centerX" secondItem="NKR-lZ-Snu" secondAttribute="centerX" id="Qna-6o-kVD"/>
+                            <constraint firstItem="d9W-2n-GYB" firstAttribute="top" secondItem="i2y-pD-b3p" secondAttribute="bottom" constant="8" symbolic="YES" id="SSW-PK-jmv"/>
+                            <constraint firstItem="7aP-x1-odj" firstAttribute="centerX" secondItem="i2y-pD-b3p" secondAttribute="centerX" id="c7q-kJ-vkt"/>
+                            <constraint firstItem="7aP-x1-odj" firstAttribute="top" secondItem="rOl-TU-AXQ" secondAttribute="bottom" constant="36" id="oSh-kO-dwt"/>
+                            <constraint firstItem="i2y-pD-b3p" firstAttribute="trailing" secondItem="d9W-2n-GYB" secondAttribute="trailing" id="oeT-p3-ZJU"/>
+                            <constraint firstItem="i2y-pD-b3p" firstAttribute="leading" secondItem="d9W-2n-GYB" secondAttribute="leading" id="vdj-l8-9L0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detectButton" destination="d9W-2n-GYB" id="Cfj-EN-22I"/>
+                        <outlet property="imageView" destination="7aP-x1-odj" id="3aG-gU-a3l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="46H-PV-Waf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2867" y="103"/>
         </scene>
         <!--Proximity-->
         <scene sceneID="GY8-om-801">
@@ -819,10 +897,10 @@
             </objects>
             <point key="canvasLocation" x="1263" y="103"/>
         </scene>
-        <!--Audio View Controller-->
+        <!--Audio-->
         <scene sceneID="HhR-V6-Klv">
             <objects>
-                <viewController id="uoe-26-70a" customClass="AudioViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Audio" id="uoe-26-70a" customClass="AudioViewController" customModule="iSensorSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dNE-4v-sbG"/>
                         <viewControllerLayoutGuide type="bottom" id="kcD-dR-Fha"/>
@@ -847,7 +925,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mPeakPower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nY-tz-IeJ">
                                         <rect key="frame" x="23" y="26" width="130" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cxY-po-geb">
@@ -863,7 +941,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mAveragePower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyy-Nt-gAe">
                                         <rect key="frame" x="23" y="70" width="130" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
