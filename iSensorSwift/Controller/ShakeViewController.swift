@@ -32,7 +32,7 @@ class ShakeViewController: UIViewController {
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.type == UIEventType.motion && event?.subtype == UIEventSubtype.motionShake {
             let text = self.textView.text
-            self.textView.text = text! + "\nMotion bedan"
+            self.textView.text = text! + "\nMotion began"
         }
     }
 
