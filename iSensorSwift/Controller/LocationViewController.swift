@@ -52,8 +52,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        self.latTextField.text = "".appendingFormat("%.4f", newLocation.coordinate.latitude)
-        self.lngTextField.text = "".appendingFormat("%.4f", newLocation.coordinate.longitude)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        self.latTextField.text = "".appendingFormat("%.4f", location.coordinate.latitude)
+        self.lngTextField.text = "".appendingFormat("%.4f", location.coordinate.longitude)
     }
 }

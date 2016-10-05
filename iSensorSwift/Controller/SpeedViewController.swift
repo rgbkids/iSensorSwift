@@ -52,8 +52,9 @@ class SpeedViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        self.mpsTextField.text = "".appendingFormat("%.2f", newLocation.speed)
-        self.kphTextField.text = "".appendingFormat("%.2f", newLocation.speed * 3.6)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        self.mpsTextField.text = "".appendingFormat("%.2f", location.speed)
+        self.kphTextField.text = "".appendingFormat("%.2f", location.speed * 3.6)
     }
 }

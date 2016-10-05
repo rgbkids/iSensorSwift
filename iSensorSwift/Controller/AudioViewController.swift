@@ -66,7 +66,7 @@ class AudioViewController: UIViewController {
         error = AudioQueueNewInput(
             &dataFormat,
             AudioQueueInputCallback as! AudioQueueInputCallback,
-            UnsafeMutablePointer(Unmanaged.passUnretained(self).toOpaque()),
+            UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
             .none,
             .none,
             0,
