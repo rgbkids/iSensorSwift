@@ -25,28 +25,28 @@ class ShakeViewController: UIViewController {
     
     // MARK: - Override methods
 
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
 
-    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if event?.type == UIEventType.Motion && event?.subtype == UIEventSubtype.MotionShake {
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if event?.type == UIEventType.motion && event?.subtype == UIEventSubtype.motionShake {
             let text = self.textView.text
-            self.textView.text = text + "\nMotion began"
+            self.textView.text = text! + "\nMotion bedan"
         }
     }
 
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if event?.type == UIEventType.Motion && event?.subtype == UIEventSubtype.MotionShake {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if event?.type == UIEventType.motion && event?.subtype == UIEventSubtype.motionShake {
             let text = self.textView.text
-            self.textView.text = text + "\nMotion ended"
+            self.textView.text = text! + "\nMotion ended"
         }
     }
 
-    override func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if event?.type == UIEventType.Motion && event?.subtype == UIEventSubtype.MotionShake {
+    override func motionCancelled(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if event?.type == UIEventType.motion && event?.subtype == UIEventSubtype.motionShake {
             let text = self.textView.text
-            self.textView.text = text + "\nMotion cancelled"
+            self.textView.text = text! + "\nMotion cancelled"
         }
     }
 }

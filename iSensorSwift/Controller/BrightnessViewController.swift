@@ -17,24 +17,24 @@ class BrightnessViewController: UIViewController {
         super.viewDidLoad()
 
         // Setup UIStepper
-        let screen = UIScreen.mainScreen()
+        let screen = UIScreen.main
         self.brightStepper.value = Double(screen.brightness)
 
         self.updateBrightnessLabel()
 
         // Observe screen brightness
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(screenBrightnessDidChange(_:)),
-                                                         name: UIScreenBrightnessDidChangeNotification,
+                                                         name: NSNotification.Name.UIScreenBrightnessDidChange,
                                                          object: nil)
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         // Finish observation
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-                                                            name: UIScreenBrightnessDidChangeNotification,
+        NotificationCenter.default.removeObserver(self,
+                                                            name: NSNotification.Name.UIScreenBrightnessDidChange,
                                                             object: nil)
     }
 
@@ -46,20 +46,20 @@ class BrightnessViewController: UIViewController {
     // MARK: - Internal methods
 
     func updateBrightnessLabel() {
-        let screen = UIScreen.mainScreen()
-        self.brightnessLabel.text = "".stringByAppendingFormat("%.2f", screen.brightness)
+        let screen = UIScreen.main
+        self.brightnessLabel.text = "".appendingFormat("%.2f", screen.brightness)
     }
 
-    func screenBrightnessDidChange(notification: NSNotification) {
+    func screenBrightnessDidChange(_ notification: Notification) {
         if let screen = notification.object {
-            self.brightnessLabel.text = "".stringByAppendingFormat("%.2f", screen.brightness)
+            self.brightnessLabel.text = "".appendingFormat("%.2f", (screen as AnyObject).brightness)
         }
     }
 
     // MARK: - Action methods
 
-    @IBAction func stepperDidTap(stepper: UIStepper) {
-        UIScreen.mainScreen().brightness = CGFloat(stepper.value)
+    @IBAction func stepperDidTap(_ stepper: UIStepper) {
+        UIScreen.main.brightness = CGFloat(stepper.value)
         self.updateBrightnessLabel()
     }
 }

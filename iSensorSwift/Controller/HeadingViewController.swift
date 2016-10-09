@@ -26,13 +26,13 @@ class HeadingViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.headingFilter = kCLHeadingFilterNone
             
             // Specifies a physical device orientation from which heading calculation should be referenced
-            locationManager.headingOrientation = .Portrait
+            locationManager.headingOrientation = .portrait
 
             locationManager.startUpdatingHeading()
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         if CLLocationManager.locationServicesEnabled() {
@@ -47,18 +47,18 @@ class HeadingViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - CLLocationManager delegate
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        case .NotDetermined:
+        case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        case .Restricted, .Denied:
+        case .restricted, .denied:
             break
-        case .Authorized, .AuthorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             break
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        self.textField.text = "".stringByAppendingFormat("%.2f", newHeading.magneticHeading)
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        self.textField.text = "".appendingFormat("%.2f", newHeading.magneticHeading)
     }
 }
