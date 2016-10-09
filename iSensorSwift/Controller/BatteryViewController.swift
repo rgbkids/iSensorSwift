@@ -16,37 +16,37 @@ class BatteryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
+        UIDevice.current.isBatteryMonitoringEnabled = true
 
         // Init Labels
         self.updateBatteryLevelLabel()
         self.updateBatteryStateLabel()
         
         // Observe battery level
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(BatteryViewController.batteryLevelDidChange),
-                                                         name: UIDeviceBatteryLevelDidChangeNotification,
+                                                         name: NSNotification.Name.UIDeviceBatteryLevelDidChange,
                                                          object: nil)
 
         // Observe battery state
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(BatteryViewController.batteryStateDidChange),
-                                                         name: UIDeviceBatteryStateDidChangeNotification,
+                                                         name: NSNotification.Name.UIDeviceBatteryStateDidChange,
                                                          object: nil)
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         // Finish observation
-        UIDevice.currentDevice().batteryMonitoringEnabled = false
+        UIDevice.current.isBatteryMonitoringEnabled = false
 
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: UIDeviceBatteryLevelDidChangeNotification,
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.UIDeviceBatteryLevelDidChange,
             object: nil)
 
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: UIDeviceBatteryStateDidChangeNotification,
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.UIDeviceBatteryStateDidChange,
             object: nil)
     }
 
@@ -58,22 +58,22 @@ class BatteryViewController: UIViewController {
     // MARK: - Internal method
 
     func updateBatteryLevelLabel() {
-        let batteryLevel = UIDevice.currentDevice().batteryLevel
+        let batteryLevel = UIDevice.current.batteryLevel
         self.batteryLevelLabel?.text = "\(batteryLevel)"
     }
 
     func updateBatteryStateLabel() {
         let batteryStateString: String
     
-        let status = UIDevice.currentDevice().batteryState
+        let status = UIDevice.current.batteryState
         switch status {
-        case .Full:
+        case .full:
             batteryStateString = "Full"
-        case .Unplugged:
+        case .unplugged:
             batteryStateString = "Unplugged"
-        case .Charging:
+        case .charging:
             batteryStateString = "Charging"
-        case .Unknown:
+        case .unknown:
             batteryStateString = "Unknown"
         }
         

@@ -26,7 +26,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         if CLLocationManager.locationServicesEnabled() {
@@ -41,19 +41,20 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: - CLLocationManager delegate
 
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        case .NotDetermined:
+        case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        case .Restricted, .Denied:
+        case .restricted, .denied:
             break
-        case .Authorized, .AuthorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             break
         }
     }
 
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        self.latTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.latitude)
-        self.lngTextField.text = "".stringByAppendingFormat("%.4f", newLocation.coordinate.longitude)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        self.latTextField.text = "".appendingFormat("%.4f", location.coordinate.latitude)
+        self.lngTextField.text = "".appendingFormat("%.4f", location.coordinate.longitude)
     }
 }

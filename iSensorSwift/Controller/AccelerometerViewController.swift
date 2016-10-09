@@ -20,28 +20,28 @@ class AccelerometerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if manager.accelerometerAvailable {
+        if manager.isAccelerometerAvailable {
             manager.accelerometerUpdateInterval = 1 / 10; // 10Hz
 
             let accelerometerHandler:CMAccelerometerHandler = {
                 [weak self] (data: CMAccelerometerData?, error: NSError?) -> Void in
 
-                self?.xLabel.text = "".stringByAppendingFormat("x %.4f", data!.acceleration.x)
-                self?.yLabel.text = "".stringByAppendingFormat("y %.4f", data!.acceleration.y)
-                self?.zLabel.text = "".stringByAppendingFormat("z %.4f", data!.acceleration.z)
+                self?.xLabel.text = "".appendingFormat("x %.4f", data!.acceleration.x)
+                self?.yLabel.text = "".appendingFormat("y %.4f", data!.acceleration.y)
+                self?.zLabel.text = "".appendingFormat("z %.4f", data!.acceleration.z)
 
                 print("x: \(data!.acceleration.x) y: \(data!.acceleration.y) z: \(data!.acceleration.z)")
-            }
+            } as! CMAccelerometerHandler
 
-            manager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!,
+            manager.startAccelerometerUpdates(to: OperationQueue.current!,
                                                      withHandler: accelerometerHandler)
         }
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        if manager.accelerometerAvailable {
+        if manager.isAccelerometerAvailable {
             manager.stopAccelerometerUpdates()
         }
     }

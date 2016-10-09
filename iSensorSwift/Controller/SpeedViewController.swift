@@ -26,7 +26,7 @@ class SpeedViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         if CLLocationManager.locationServicesEnabled() {
@@ -41,19 +41,20 @@ class SpeedViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: - CLLocationManager delegate
 
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        case .NotDetermined:
+        case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        case .Restricted, .Denied:
+        case .restricted, .denied:
             break
-        case .Authorized, .AuthorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             break
         }
     }
 
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        self.mpsTextField.text = "".stringByAppendingFormat("%.2f", newLocation.speed)
-        self.kphTextField.text = "".stringByAppendingFormat("%.2f", newLocation.speed * 3.6)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        self.mpsTextField.text = "".appendingFormat("%.2f", location.speed)
+        self.kphTextField.text = "".appendingFormat("%.2f", location.speed * 3.6)
     }
 }

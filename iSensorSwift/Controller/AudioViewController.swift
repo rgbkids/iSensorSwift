@@ -10,7 +10,7 @@ import UIKit
 import AudioToolbox
 
 private func AudioQueueInputCallback(
-    inUserData: UnsafeMutablePointer<Void>,
+    _ inUserData: UnsafeMutableRawPointer,
     inAQ: AudioQueueRef,
     inBuffer: AudioQueueBufferRef,
     inStartTime: UnsafePointer<AudioTimeStamp>,
@@ -28,14 +28,14 @@ class AudioViewController: UIViewController {
     @IBOutlet weak var averageTextField: UITextField!
 
     var queue: AudioQueueRef!
-    var timer: NSTimer!
+    var timer: Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.startUpdatingVolume()
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.stopUpdatingVolume()
     }
@@ -61,14 +61,14 @@ class AudioViewController: UIViewController {
             mReserved: 0)
 
         // Observe input level
-        var audioQueue: AudioQueueRef = nil
+        var audioQueue: AudioQueueRef? = nil
         var error = noErr
         error = AudioQueueNewInput(
             &dataFormat,
-            AudioQueueInputCallback,
-            UnsafeMutablePointer(unsafeAddressOf(self)),
-            .None,
-            .None,
+            AudioQueueInputCallback as! AudioQueueInputCallback,
+            UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
+            .none,
+            .none,
             0,
             &audioQueue)
         if error == noErr {
@@ -78,9 +78,9 @@ class AudioViewController: UIViewController {
 
         // Enable level meter
         var enabledLevelMeter: UInt32 = 1
-        AudioQueueSetProperty(self.queue, kAudioQueueProperty_EnableLevelMetering, &enabledLevelMeter, UInt32(sizeof(UInt32)))
+        AudioQueueSetProperty(self.queue, kAudioQueueProperty_EnableLevelMetering, &enabledLevelMeter, UInt32(MemoryLayout<UInt32>.size))
 
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5,
+        self.timer = Timer.scheduledTimer(timeInterval: 0.5,
                                                             target: self,
                                                             selector: #selector(AudioViewController.detectVolume(_:)),
                                                             userInfo: nil,
@@ -98,11 +98,11 @@ class AudioViewController: UIViewController {
         AudioQueueDispose(self.queue, true)
     }
 
-    func detectVolume(timer: NSTimer)
+    func detectVolume(_ timer: Timer)
     {
         // Get level
         var levelMeter = AudioQueueLevelMeterState()
-        var propertySize = UInt32(sizeof(AudioQueueLevelMeterState))
+        var propertySize = UInt32(MemoryLayout<AudioQueueLevelMeterState>.size)
 
         AudioQueueGetProperty(
             self.queue,
@@ -111,10 +111,10 @@ class AudioViewController: UIViewController {
             &propertySize)
 
         // Show the audio channel's peak and average RMS power.
-        self.peakTextField.text = "".stringByAppendingFormat("%.2f", levelMeter.mPeakPower)
-        self.averageTextField.text = "".stringByAppendingFormat("%.2f", levelMeter.mAveragePower)
+        self.peakTextField.text = "".appendingFormat("%.2f", levelMeter.mPeakPower)
+        self.averageTextField.text = "".appendingFormat("%.2f", levelMeter.mAveragePower)
 
         // Show "LOUD!!" if mPeakPower is larger than -1.0
-        self.loudLabel.hidden = (levelMeter.mPeakPower >= -1.0) ? false : true
+        self.loudLabel.isHidden = (levelMeter.mPeakPower >= -1.0) ? false : true
     }
 }

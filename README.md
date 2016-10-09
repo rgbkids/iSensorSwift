@@ -19,7 +19,7 @@ Sense a lot of things. (Swift ver)
 
 ## Requirements
 
-Swift 2.3 / iOS 8.0+
+Swift 3.0 / iOS 8.0+
 
 ## Creator
 

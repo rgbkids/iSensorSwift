@@ -31,10 +31,10 @@ class MotionActivityViewController: UIViewController {
         self.startUpdatingActivity()
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        self.pedometer.stopPedometerUpdates()
+        self.pedometer.stopUpdates()
         self.activityManager.stopActivityUpdates()
     }
 
@@ -47,22 +47,22 @@ class MotionActivityViewController: UIViewController {
 
     func startStepCounting() {
         if CMPedometer.isStepCountingAvailable() {
-            self.pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
+            self.pedometer.startUpdates(from: Date(), withHandler: {
                 [weak self] (data: CMPedometerData?, error: NSError?) -> Void in
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     if data != nil && error == nil {
                         self?.stepLabel.text = "step: \(data!.numberOfSteps)"
                     }
                 })
-            })
+            } as! CMPedometerHandler)
         }
     }
 
     func startUpdatingActivity() {
         if CMMotionActivityManager.isActivityAvailable() {
-            self.activityManager.startActivityUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: {
+            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: {
                 [weak self] (data: CMMotionActivity?) -> Void in
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     if let data = data {
                     self?.stationaryLabel.text = "stationary: \(data.stationary)"
                     self?.walkingLabel.text = "walking: \(data.walking)"

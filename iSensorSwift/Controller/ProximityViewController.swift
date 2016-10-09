@@ -14,23 +14,23 @@ class ProximityViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        UIDevice.currentDevice().proximityMonitoringEnabled = true
+        UIDevice.current.isProximityMonitoringEnabled = true
 
         // Observe proximity state
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(proximitySensorStateDidChange),
-                                                         name: UIDeviceProximityStateDidChangeNotification,
+                                                         name: NSNotification.Name.UIDeviceProximityStateDidChange,
                                                          object: nil)
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         // Finish observation
-        UIDevice.currentDevice().proximityMonitoringEnabled = false
+        UIDevice.current.isProximityMonitoringEnabled = false
 
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-                                                            name: UIDeviceProximityStateDidChangeNotification,
+        NotificationCenter.default.removeObserver(self,
+                                                            name: NSNotification.Name.UIDeviceProximityStateDidChange,
                                                             object: nil)
     }
 
@@ -42,6 +42,6 @@ class ProximityViewController: UIViewController {
     // MARK: - Internal method
 
     func proximitySensorStateDidChange() {
-        print("proximityState : \(UIDevice.currentDevice().proximityState)")
+        print("proximityState : \(UIDevice.current.proximityState)")
     }
 }

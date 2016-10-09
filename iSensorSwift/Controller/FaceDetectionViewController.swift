@@ -26,22 +26,22 @@ class FaceDetectionViewController: UIViewController, UIImagePickerControllerDele
     
     // MARK: - Internal methods
 
-    @IBAction func didTapSelectButton(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+    @IBAction func didTapSelectButton(_ sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             let imagePickerController = UIImagePickerController()
-            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
             imagePickerController.delegate = self
-            self.presentViewController(imagePickerController, animated: true, completion: nil)
+            self.present(imagePickerController, animated: true, completion: nil)
         }
     }
 
-    @IBAction func didTapDetectTap(sender: AnyObject) {
-        guard let image = self.imageView.image, cgImage = image.CGImage else {
+    @IBAction func didTapDetectTap(_ sender: AnyObject) {
+        guard let image = self.imageView.image, let cgImage = image.cgImage else {
             return
         }
         
         // Create CIImage from CGImage
-        let ciImage = CIImage(CGImage: cgImage)
+        let ciImage = CIImage(cgImage: cgImage)
         
         // Create CIDetector
         let detector = CIDetector(ofType: CIDetectorTypeFace,
@@ -52,29 +52,29 @@ class FaceDetectionViewController: UIViewController, UIImagePickerControllerDele
         // and UIKit is at the top left corner. So we need to translate
         // features positions before drawing them to screen. In order to do
         // so we make an affine transform
-        var transform = CGAffineTransformMakeScale(1, -1);
-        transform = CGAffineTransformTranslate(transform, 0, -self.imageView.bounds.size.height);
+        var transform = CGAffineTransform(scaleX: 1, y: -1);
+        transform = transform.translatedBy(x: 0, y: -self.imageView.bounds.size.height);
 
         // Detect features from the image
-        let features = detector?.featuresInImage(ciImage, options: [CIDetectorSmile : true])
+        let features = detector?.features(in: ciImage, options: [CIDetectorSmile : true])
         for feature in features as! [CIFaceFeature] {
             // Get the face rect: Convert CoreImage to UIKit coordinates
-            let faceRect = CGRectApplyAffineTransform(feature.bounds, transform)
+            let faceRect = feature.bounds.applying(transform)
 
             // Create a UIView using the bounds of the face
             // Red border: smile :-)
             // Blue border: not smile :-(
             let faceView = UIView(frame:faceRect)
             faceView.layer.borderWidth = 1;
-            faceView.layer.borderColor = feature.hasSmile ? UIColor.redColor().CGColor : UIColor.blueColor().CGColor
+            faceView.layer.borderColor = feature.hasSmile ? UIColor.red.cgColor : UIColor.blue.cgColor
             self.imageView.addSubview(faceView)
         }
     }
 
     // Prevent that the coordinate is shifted
-    func resizeImage(image: UIImage, newSize: CGSize) -> UIImage? {
+    func resizeImage(_ image: UIImage, newSize: CGSize) -> UIImage? {
         UIGraphicsBeginImageContext(newSize);
-        image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         return newImage
@@ -82,16 +82,16 @@ class FaceDetectionViewController: UIViewController, UIImagePickerControllerDele
 
     // MARK: - UIImagePickerControllerDelegate
 
-    func imagePickerController(imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imageView.contentMode = .ScaleAspectFit
-            self.imageView.image = self.resizeImage(pickedImage, newSize: CGSizeMake(280, 210))
+            self.imageView.contentMode = .scaleAspectFit
+            self.imageView.image = self.resizeImage(pickedImage, newSize: CGSize(width: 280, height: 210))
         }
-        self.detectButton.enabled = true;
-        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        self.detectButton.isEnabled = true;
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
