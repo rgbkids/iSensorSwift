@@ -16,3 +16,15 @@ Sense a lot of things. (Swift ver)
 10. Accelerometer
 11. Motion Activity
 12. Face Detection
+
+## Requirements
+
+Swift 2.3 / iOS 8.0+
+
+## Creator
+
+[Kosuke Ogawa](http://www.twitter.com/koogawa)
+
+## License
+
+The MIT License. See License.txt for details.
