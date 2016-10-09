@@ -56,7 +56,7 @@ class FaceDetectionViewController: UIViewController, UIImagePickerControllerDele
         transform = CGAffineTransformTranslate(transform, 0, -self.imageView.bounds.size.height);
 
         // Detect features from the image
-        let features = detector.featuresInImage(ciImage, options: [CIDetectorSmile : true])
+        let features = detector?.featuresInImage(ciImage, options: [CIDetectorSmile : true])
         for feature in features as! [CIFaceFeature] {
             // Get the face rect: Convert CoreImage to UIKit coordinates
             let faceRect = CGRectApplyAffineTransform(feature.bounds, transform)
@@ -72,7 +72,7 @@ class FaceDetectionViewController: UIViewController, UIImagePickerControllerDele
     }
 
     // Prevent that the coordinate is shifted
-    func resizeImage(image: UIImage, newSize: CGSize) -> UIImage {
+    func resizeImage(image: UIImage, newSize: CGSize) -> UIImage? {
         UIGraphicsBeginImageContext(newSize);
         image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
