@@ -52,7 +52,11 @@ class AltitudeViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last!
-        self.textField.text = "".appendingFormat("%.2f m", location.altitude)
+        guard let newLocation = locations.last,
+            CLLocationCoordinate2DIsValid(newLocation.coordinate) else {
+                self.textField.text = "Error"
+                return
+        }
+        self.textField.text = "".appendingFormat("%.2f m", newLocation.altitude)
     }
 }
