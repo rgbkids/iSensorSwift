@@ -47,21 +47,21 @@ class MotionActivityViewController: UIViewController {
 
     func startStepCounting() {
         if CMPedometer.isStepCountingAvailable() {
-            self.pedometer.startUpdates(from: Date(), withHandler: {
-                [weak self] (data: CMPedometerData?, error: NSError?) -> Void in
-                DispatchQueue.main.async(execute: {
-                    if data != nil && error == nil {
-                        self?.stepLabel.text = "step: \(data!.numberOfSteps)"
+            self.pedometer.startUpdates(from: Date()) { data, error in
+                DispatchQueue.main.async(execute: { _ in
+                    if (data != nil && error == nil) {
+                        let steps = data!.numberOfSteps
+                        self.stepLabel.text = "steps: \(steps)"
                     }
                 })
-            } as! CMPedometerHandler)
+            }
         }
     }
 
     func startUpdatingActivity() {
         if CMMotionActivityManager.isActivityAvailable() {
             self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: {
-                [weak self] (data: CMMotionActivity?) -> Void in
+                [weak self] (data: CMMotionActivity?) in
                 DispatchQueue.main.async(execute: {
                     if let data = data {
                     self?.stationaryLabel.text = "stationary: \(data.stationary)"
