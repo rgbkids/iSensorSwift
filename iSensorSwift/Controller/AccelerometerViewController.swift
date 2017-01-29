@@ -23,18 +23,18 @@ class AccelerometerViewController: UIViewController {
         if manager.isAccelerometerAvailable {
             manager.accelerometerUpdateInterval = 1 / 10; // 10Hz
 
-            let accelerometerHandler:CMAccelerometerHandler = {
-                [weak self] (data: CMAccelerometerData?, error: NSError?) -> Void in
+            let accelerometerHandler: CMAccelerometerHandler = {
+                [weak self] data, error in
 
                 self?.xLabel.text = "".appendingFormat("x %.4f", data!.acceleration.x)
                 self?.yLabel.text = "".appendingFormat("y %.4f", data!.acceleration.y)
                 self?.zLabel.text = "".appendingFormat("z %.4f", data!.acceleration.z)
 
                 print("x: \(data!.acceleration.x) y: \(data!.acceleration.y) z: \(data!.acceleration.z)")
-            } as! CMAccelerometerHandler
+            }
 
             manager.startAccelerometerUpdates(to: OperationQueue.current!,
-                                                     withHandler: accelerometerHandler)
+                                              withHandler: accelerometerHandler)
         }
     }
 
