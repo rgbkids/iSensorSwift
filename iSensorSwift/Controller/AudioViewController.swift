@@ -10,12 +10,12 @@ import UIKit
 import AudioToolbox
 
 private func AudioQueueInputCallback(
-    _ inUserData: UnsafeMutableRawPointer,
+    _ inUserData: UnsafeMutableRawPointer?,
     inAQ: AudioQueueRef,
     inBuffer: AudioQueueBufferRef,
     inStartTime: UnsafePointer<AudioTimeStamp>,
     inNumberPacketDescriptions: UInt32,
-    inPacketDescs: UnsafePointer<AudioStreamPacketDescription>)
+    inPacketDescs: UnsafePointer<AudioStreamPacketDescription>?)
 {
     // Do nothing, because not recoding.
 }
@@ -65,7 +65,7 @@ class AudioViewController: UIViewController {
         var error = noErr
         error = AudioQueueNewInput(
             &dataFormat,
-            AudioQueueInputCallback as! AudioQueueInputCallback,
+            AudioQueueInputCallback,
             UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
             .none,
             .none,
