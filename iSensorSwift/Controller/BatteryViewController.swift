@@ -80,11 +80,11 @@ class BatteryViewController: UIViewController {
         self.batteryStateLabel!.text = batteryStateString
     }
     
-    func batteryLevelDidChange() {
+    @objc func batteryLevelDidChange() {
         self.updateBatteryLevelLabel()
     }
     
-    func batteryStateDidChange() {
+    @objc func batteryStateDidChange() {
         self.updateBatteryStateLabel()
     }
 }
