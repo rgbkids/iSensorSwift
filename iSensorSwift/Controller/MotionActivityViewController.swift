@@ -48,7 +48,7 @@ class MotionActivityViewController: UIViewController {
     func startStepCounting() {
         if CMPedometer.isStepCountingAvailable() {
             self.pedometer.startUpdates(from: Date()) { data, error in
-                DispatchQueue.main.async(execute: { _ in
+                DispatchQueue.main.async(execute: {
                     if (data != nil && error == nil) {
                         let steps = data!.numberOfSteps
                         self.stepLabel.text = "steps: \(steps)"
