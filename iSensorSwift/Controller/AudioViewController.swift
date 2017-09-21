@@ -98,7 +98,7 @@ class AudioViewController: UIViewController {
         AudioQueueDispose(self.queue, true)
     }
 
-    func detectVolume(_ timer: Timer)
+    @objc func detectVolume(_ timer: Timer)
     {
         // Get level
         var levelMeter = AudioQueueLevelMeterState()
