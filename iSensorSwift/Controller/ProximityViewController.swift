@@ -41,7 +41,7 @@ class ProximityViewController: UIViewController {
     
     // MARK: - Internal method
 
-    func proximitySensorStateDidChange() {
+    @objc func proximitySensorStateDidChange() {
         print("proximityState : \(UIDevice.current.proximityState)")
     }
 }

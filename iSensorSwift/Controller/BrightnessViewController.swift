@@ -50,7 +50,7 @@ class BrightnessViewController: UIViewController {
         self.brightnessLabel.text = "".appendingFormat("%.2f", screen.brightness)
     }
 
-    func screenBrightnessDidChange(_ notification: Notification) {
+    @objc func screenBrightnessDidChange(_ notification: Notification) {
         if let screen = notification.object {
             self.brightnessLabel.text = "".appendingFormat("%.2f", (screen as AnyObject).brightness)
         }
