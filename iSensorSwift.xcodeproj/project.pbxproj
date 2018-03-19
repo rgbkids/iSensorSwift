@@ -16,6 +16,7 @@
 		21A2CBA81CB29C610010A7F2 /* AccelerometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */; };
 		21B2CE871CA7631000B59593 /* AltitudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B2CE861CA7631000B59593 /* AltitudeViewController.swift */; };
 		21DC6CEE1CC12FE1007FB913 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC6CED1CC12FE1007FB913 /* AudioViewController.swift */; };
+		D2C2A2A5205E388800588461 /* FaceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C2A2A4205E388700588461 /* FaceTracker.swift */; };
 		DC6FCCF91C9813D1004C61E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */; };
 		DC6FCCFB1C9813D1004C61E0 /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */; };
 		DC6FCCFE1C9813D1004C61E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6FCCFC1C9813D1004C61E0 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		21A2CBA71CB29C610010A7F2 /* AccelerometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccelerometerViewController.swift; path = Controller/AccelerometerViewController.swift; sourceTree = "<group>"; };
 		21B2CE861CA7631000B59593 /* AltitudeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AltitudeViewController.swift; path = Controller/AltitudeViewController.swift; sourceTree = "<group>"; };
 		21DC6CED1CC12FE1007FB913 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioViewController.swift; path = Controller/AudioViewController.swift; sourceTree = "<group>"; };
+		D2C2A2A4205E388700588461 /* FaceTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceTracker.swift; sourceTree = "<group>"; };
 		DC6FCCF51C9813D1004C61E0 /* iSensorSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSensorSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6FCCFA1C9813D1004C61E0 /* BatteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatteryViewController.swift; path = Controller/BatteryViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		DC6FCCF71C9813D1004C61E0 /* iSensorSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D2C2A2A4205E388700588461 /* FaceTracker.swift */,
 				2107BDF91C9D3B3D005C46EE /* Controller */,
 				DC6FCCF81C9813D1004C61E0 /* AppDelegate.swift */,
 				DC6FCCFF1C9813D1004C61E0 /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 				TargetAttributes = {
 					DC6FCCF41C9813D1004C61E0 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = F6NT2ZC66R;
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -186,6 +190,7 @@
 				DCD4ADDD1CA2A42A00B4CAF8 /* LocationViewController.swift in Sources */,
 				213454D31CB9E63F00E64863 /* MotionActivityViewController.swift in Sources */,
 				DCB0BAF81CABE5B00047EC32 /* HeadingViewController.swift in Sources */,
+				D2C2A2A5205E388800588461 /* FaceTracker.swift in Sources */,
 				21A2CBA61CB0B5BB0010A7F2 /* SpeedViewController.swift in Sources */,
 				212CD7601CCB6EA00040624B /* FaceDetectionViewController.swift in Sources */,
 				21163D5D1C9E1B46005CC2D0 /* ShakeViewController.swift in Sources */,
@@ -317,10 +322,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F6NT2ZC66R;
 				INFOPLIST_FILE = iSensorSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.koogawa.iSensorSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = biz.r8b.iSensorSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -331,10 +336,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F6NT2ZC66R;
 				INFOPLIST_FILE = iSensorSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.koogawa.iSensorSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = biz.r8b.iSensorSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
